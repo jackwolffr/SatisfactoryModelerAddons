@@ -1,0 +1,14 @@
+﻿10;5;140;Basic Building Material
+10;Basic Building Material;2;1;Titanium Ore;1;Wolfram Ore
+2;Calcite Sheets;2;1;Calcium Block
+25;Pistol Ammo;4;14;Basic Building Material
+1;Titanium Beam;3;1;Titanium Bar
+1;Titanium Rod;2;1;Titanium Bar
+2;Titanium Sheet;2;1;Titanium Bar
+1;Wolfram Plate;1;1;Wolfram Bar
+2;Wolfram Wire;4;1;Wolfram Bar
+1;Rotor;6;2;Wolfram Wire;2;Titanium Rod
+2;Tube;2;1;Titanium Rod;1;Titanium Sheet
+1;Applicator;4;2;Glass;8;Tube
+1;Stabilizer;6;1;Rotor;2;Titanium Rod
+1;Stator;3;1;Wolfram Wire;2;Titanium Housing

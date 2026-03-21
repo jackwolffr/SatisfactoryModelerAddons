@@ -1,0 +1,66 @@
+{
+  "Devices": [
+    {
+      "Heat": "",
+      "Image": "heat.webp",
+      "Name": "HeatDevice"
+    }
+  ],
+  "Properties": {
+    "FuelDeviceName": "HeatDevice",
+    "FuelItemName": "Heat",
+    "RawMaterialDeviceName": "Purchasing Portal",
+    "CopperCoinName": "Copper Coin",
+    "NurseryDeviceName": "Nursery"
+  },
+  "Items": [
+    {
+      "Image": "heat.webp",
+      "Name": "Heat"
+    },
+    {
+      "Image": "redcross.png",
+      "Name": "Redcross"
+    }
+  ],
+  "Recipes": [
+    {
+      "DeviceName": "Stone Furnace",
+      "Ins": [
+        {
+          "Count": "1",
+          "Name": "Heat",
+          "Percentage": "100"
+        }
+      ],
+      "Name": "Stone Furnace",
+      "Outs": [
+        {
+          "Count": "0",
+          "Name": "Redcross",
+          "Percentage": "100"
+        }
+      ],
+      "Time": "1"
+    },
+    {
+      "DeviceName": "Blast Furnace",
+      "Ins": [
+        {
+          "Count": "4",
+          "Name": "Heat",
+          "Percentage": "100"
+        }
+      ],
+      "Name": "Blast Furnace",
+      "Outs": [
+        {
+          "Count": "0",
+          "Name": "Redcross",
+          "Percentage": "100"
+        }
+      ],
+      "Time": "1"
+    }
+  ]
+}

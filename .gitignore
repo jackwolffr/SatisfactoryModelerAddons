@@ -416,3 +416,6 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+/ImageMagick-7.1.2-12-Q16-HDRI-x64-dll.exe
+/modeler.jar.src.zip
+/SatisfactoryModelerAddons/datasout
