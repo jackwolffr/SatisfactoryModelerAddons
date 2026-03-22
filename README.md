@@ -3,7 +3,10 @@ ajout des données de jeux et icones (Star Rupture, Alchemy Factory) pour Satisf
 
 # Utilisation
 
-- Compilez et lancez l'exe, il va générer les fichiers de données dans dataouts
+- Si vous ne voulez pas reconstituer les fichiers de données, prenez simplement [datasout.zip](datasout.zip) et décompressez le dans le dossier de Satisfactory Modeler
+
+- Si vous partez des sources en vue de les modifier :
+- Compilez (Visual Studio 2026 community) et lancez l'exe, il va générer les fichiers de données dans dataouts
 - Le fichier game_datas.json sera écrasé dans Satisfactory Modeler, donc pensez d'abord à le sauver si vous voulez faire machine arrière (ou réinstallez l'application)
 - Copiez/écrasez les dossiers game_datas et images dans le répertoire de Satisfactory Modeler
 - Lancez Satisfactory Modeler et tapez "SR" ou "AF" pour les recttes des 2 jeux
@@ -11,13 +14,13 @@ ajout des données de jeux et icones (Star Rupture, Alchemy Factory) pour Satisf
 
 # Notes pour Alchemy Factory
 Ce jeu possède beaucoup de paramètres variables qui s'adaptent mal à Satisfactory Modeler.
-J'ai donc dû passer par des adaptations pour rendre le calcul le plus simple possible
+J'ai donc dû passer par des adaptations pour rendre le calcul le plus simple possible.
 
 ## Système de chaleur (heat)
 
-pour avoir les bons calculs, vous devez passer par les briques intermédiaires <img src="SatisfactoryModelerAddons/datas/AlchemyFactory/heat.webp" width="16" height="16"/>.
+Pour avoir les bons calculs, vous devez passer par les briques intermédiaires <img src="SatisfactoryModelerAddons/datas/AlchemyFactory/heat.webp" width="16" height="16"/>.
 Convertissez votre carburant en chaleur, puis distribuez la chaleur aux machines qui en ont besoin.
-N'oubliez pas d'ajouter autant de fours et hauts fourneaux (blast furnace) que necessaires (vous devrez calculer manuellement le nombre).
+N'oubliez pas d'ajouter autant de fours (stone furnace) et hauts fourneaux (blast furnace) que nécessaires (vous devrez calculer manuellement le nombre).
 
 ![exemple de système de chaleur](SatisfactoryModelerAddons/doc/heat.png)
 
