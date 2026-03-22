@@ -22,24 +22,24 @@ Pour avoir les bons calculs, vous devez passer par les briques intermédiaires <
 Convertissez votre carburant en chaleur, puis distribuez la chaleur aux machines qui en ont besoin.
 N'oubliez pas d'ajouter autant de fours (stone furnace) et hauts fourneaux (blast furnace) que nécessaires (vous devrez calculer manuellement le nombre).
 
-![exemple de système de chaleur](SatisfactoryModelerAddons/doc/heat.png)
+![exemple de système de chaleur](doc/heat.png)
 
 ## Système de fertilisant
 
 Les débits des recettes dépendent du type de fertilsant utilisé (je ne tient pas compte de la limitation du débit de sortie que calcule aussi le jeu en fonction de la vitesse des convoyeurs, attention à ce point !).
 Vous devez donc choisir la bonne recette avec le fertilisant que vous voulez utiliser.
 
-![les 5 fertilizers](SatisfactoryModelerAddons/doc/fertilizer.png)
+![les 5 fertilizers](doc/fertilizer.png)
 
 Exemple complet d'un générateur de basic fertilizer.
 
-![basic fertilizers](SatisfactoryModelerAddons/doc/basic_fertilizer.png)
+![basic fertilizers](doc/basic_fertilizer.png)
 
 ## World Tree
 
 Cette machine peut prendre les 5 fertilisants et possède 3 états : Sapling, Mature, Max Size.
 
-![world tree](SatisfactoryModelerAddons/doc/world_tree.png)
+![world tree](doc/world_tree.png)
 
 Le "next step" (target), 6 000 000, n'est qu'un rappel du nombre de points à alimenter pour pouvoir passer à la prochaine étape.
 
