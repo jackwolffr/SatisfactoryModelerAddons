@@ -57,7 +57,9 @@ namespace SatisfactoryModelerAddons.AlchemyFactory
             var fuels = Fuel.FromHTML(_datasDirname);
             tables.Items.UnionWith(fuels);
 
-            var recipes = Recipe.FromHTML(_datasDirname);
+            tables.Recipes.UnionWith(Fertilizer.ToRecipesWorldTree(tables.WorldTreeRecipes,fertilizers));
+
+            var recipes = Recipe.FromHTML(_datasDirname).Where(r => !tables.ExcludeRecipes.Contains(r.Name)).ToHashSet();
             tables.Items.UnionWith(Recipe.ToItems(recipes));
             tables.Recipes.UnionWith(recipes);
             tables.ApplyHeatIngredient();

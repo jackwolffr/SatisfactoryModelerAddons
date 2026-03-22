@@ -22,6 +22,7 @@
       [ "Sage" ],
       [ "Redcurrant" ],
       [ "Lavender" ],
+      [ "Chamomile" ],
       [ "Gentian", "Gentian Nectar" ]
     ]
   },
@@ -31,14 +32,63 @@
       "Name": "Heat"
     },
     {
-      "Image": "fertilizer.webp",
-      "Name": "nutrient"
-    },
-    {
       "Image": "redcross.png",
       "Name": "Redcross"
+    },
+    {
+      "Image": "target.png",
+      "Name": "Next Stage"
     }
   ],
+  "WorldTreeRecipes": [
+    {
+      "DeviceName": "World Tree Nursery",
+      "Name": "World Tree Sapling",
+      "NutrimentSpeed": "5000",
+      "Outs": [
+        {
+          "Count": "20",
+          "Nutriment": "1",
+          "Name": "Next Stage"
+        }
+      ]
+    },
+    {
+      "DeviceName": "World Tree Nursery",
+      "Name": "World Tree Mature",
+      "NutrimentSpeed": "10000",
+      "Outs": [
+        {
+          "Count": "1",
+          "Nutriment": "30000",
+          "Name": "World Tree Leaf"
+        },
+        {
+          "Count": "10",
+          "Nutriment": "1",
+          "Name": "Next Stage"
+        }
+      ]
+    },
+    {
+      "DeviceName": "World Tree Nursery",
+      "Name": "World Tree Max Size",
+      "NutrimentSpeed": "20000",
+      "Outs": [
+        {
+          "Count": "99",
+          "Nutriment": "6000000",
+          "Name": "World Tree Leaf"
+        },
+        {
+          "Count": "1",
+          "Nutriment": "6000000",
+          "Name": "World Tree Core"
+        }
+      ]
+    }
+  ],
+  "ExcludeRecipes": [ "World Tree Leaf and World Tree Core" ],
   "Recipes": [
     {
       "DeviceName": "Stone Furnace",

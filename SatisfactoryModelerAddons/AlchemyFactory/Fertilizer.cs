@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -32,6 +33,33 @@ namespace SatisfactoryModelerAddons.AlchemyFactory
         {
             return properties.Nursery.SelectMany(n => fertilizers, (n, f) => f.ToRecipe(properties, herbs.Where(h => n.Contains(h.Name)))).ToHashSet();
         }
+        public static HashSet<Recipe> ToRecipesWorldTree(HashSet<WorldTreeRecipe> worldTreeRecipes, HashSet<Fertilizer> fertilizers)
+        {
+            return worldTreeRecipes.SelectMany(w => fertilizers, (w, f) => f.ToRecipeWorldTree(w)).ToHashSet();
+        }
+        public Recipe ToRecipeWorldTree(WorldTreeRecipe worldTreeRecipe)
+        {
+            var nutriment = decimal.Parse(Nutriment, CultureInfo.InvariantCulture);
+            var nutrimentSpeed = decimal.Parse(worldTreeRecipe.NutrimentSpeed, CultureInfo.InvariantCulture);
+            return new Recipe()
+            {
+                DeviceName = worldTreeRecipe.DeviceName,
+                Name = $"{Name} {worldTreeRecipe.Name}",
+                Ins = [new Item() {
+                    Name = Name,
+                    Image = Image,
+                    Count=(60*nutrimentSpeed / nutriment ).ToString(CultureInfo.InvariantCulture),
+                }],
+                Outs = worldTreeRecipe.Outs.Select(o => new Item()
+                {
+                    Name = o.Name,
+                    Image = "",
+                    Count = (60*decimal.Parse(o.Count, CultureInfo.InvariantCulture) * nutrimentSpeed / decimal.Parse(o.Nutriment, CultureInfo.InvariantCulture)).ToString(CultureInfo.InvariantCulture),
+                }).ToList(),
+                Time = "60"
+            };
+        }
+
         public Recipe ToRecipe(Properties properties, IEnumerable<Herb> herbs)
         {
             var nutriment = double.Parse(Nutriment, CultureInfo.InvariantCulture);

@@ -13,6 +13,8 @@ namespace SatisfactoryModelerAddons.AlchemyFactory
         public Properties Properties { get; set; } = new Properties();
         public HashSet<Recipe> Recipes { get; set; } = [];
         public HashSet<ItemBase> Items { get; set; } = [];
+        public HashSet<WorldTreeRecipe> WorldTreeRecipes { get; set; } = [];
+        public List<string> ExcludeRecipes { get; set; } = [];
 
         public void ApplyHeatIngredient()
         {
@@ -30,6 +32,21 @@ namespace SatisfactoryModelerAddons.AlchemyFactory
             }
         }
     }
+    public class WorldTreeRecipe
+    {
+        public string DeviceName { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+        public string NutrimentSpeed { get; set; } = string.Empty;
+        public HashSet<WorldTreeRecipeOut> Outs { get; set; } = [];
+    }
+
+    public class WorldTreeRecipeOut
+    {
+        public string Count { get; set; } = string.Empty;
+        public string Nutriment { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+    }
+
     public class Properties
     {
         public string FuelDeviceName { get; set; } = string.Empty;
