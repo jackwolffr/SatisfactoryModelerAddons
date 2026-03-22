@@ -9,21 +9,25 @@ namespace SatisfactoryModelerAddons
 {
     public class Part
     {
+        private Part()
+        {
+        }
         public Part(string prefix)
         {
             Prefix = prefix;
         }
+        public string FinalName => Prefix + " " + Name;
         public string Name { get; set; } = "";
         public string Image { get; set; } = "";
         public string Tier { get; set; } = "0-2";
         public string SinkPoints { get; set; } = "0";
-        public string Prefix { get; }
+        public string Prefix { get; } = "";
 
         public JsonObject Build()
         {
             return new JsonObject
             {
-                { "Name", Prefix + " " + Name },
+                { "Name", FinalName },
                 { "Tier", Tier },
                 { "SinkPoints", SinkPoints }
             };

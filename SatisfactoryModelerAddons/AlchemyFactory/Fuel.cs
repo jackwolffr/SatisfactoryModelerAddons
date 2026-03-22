@@ -3,21 +3,24 @@ using System.Text.Json.Nodes;
 
 namespace SatisfactoryModelerAddons.AlchemyFactory
 {
-    public class Fuel
+    public class Fuel : ItemBase
     {
-        public required string Name { get; set; }
         public required string Heat { get; set; }
 
-        public static HashSet<Recipe> FromHTML(string filename, Properties properties)
+        public static HashSet<Fuel> FromHTML(string dirName)
         {
-            HtmlDocument doc = new HtmlDocument();
-            doc.LoadHtml(File.ReadAllText(filename));
-            HtmlNodeCollection nodes = doc.DocumentNode.SelectNodes("//tbody/tr");
+            HtmlNodeCollection nodes = GetDoc(dirName, "Fuels - Alchemy Factory Codex.html").DocumentNode.SelectNodes("//tbody/tr");
             return nodes.Select(node => new Fuel()
             {
-                Name = node.SelectNodes("td/div[@class='item-name-cell']/a").FirstOrDefault()?.InnerText.Trim() ?? "",
-                Heat = node.SelectNodes("td[@class='heat-value-cell']").FirstOrDefault()?.InnerText.Replace("\u202f", "").Trim() ?? "",
-            }.ToRecipe(properties)).ToHashSet();
+                Name = node.SelectSingleNode("td/div[@class='item-name-cell']/a")?.InnerText.Trim() ?? "",
+                Image = node.SelectSingleNode("td/div[@class='item-name-cell']//img")?.Attributes["src"].Value.Trim() ?? "",
+                Heat = node.SelectSingleNode("td[@class='heat-value-cell']")?.InnerText.Replace("\u202f", "").Trim() ?? "",
+            }).ToHashSet();
+        }
+
+        public static HashSet<Recipe> ToRecipes(HashSet<Fuel> fuels, Properties properties)
+        {
+            return fuels.Select(f => f.ToRecipe(properties)).ToHashSet();
         }
 
         public Recipe ToRecipe(Properties properties)
@@ -29,10 +32,12 @@ namespace SatisfactoryModelerAddons.AlchemyFactory
                 Ins = [new Item() {
                     Count = "1",
                     Name = Name,
+                    Image = Image
                 }],
                 Outs = [new Item() {
                     Count = Heat,
                     Name = properties.FuelItemName,
+                    Image = ""
                 }],
                 Time = "1"
             };

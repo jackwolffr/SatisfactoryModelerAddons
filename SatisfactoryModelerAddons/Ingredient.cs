@@ -14,6 +14,8 @@ namespace SatisfactoryModelerAddons
         {
             Prefix = prefix;
         }
+
+        public string FinalName => Prefix + " " + Name;
         public bool IsNeg { get; set; } = false;
         public string Name { get; set; } = "";
         public string Amount { get; set; } = "";
@@ -23,7 +25,7 @@ namespace SatisfactoryModelerAddons
         {
             return new JsonObject()
             {
-                { "Part", Prefix + " " + Name },
+                { "Part", FinalName },
                 { "Amount",(IsNeg?"-":"") + Amount }
             };
         }

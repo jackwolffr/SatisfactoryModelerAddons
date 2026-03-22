@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace SatisfactoryModelerAddons
 {
@@ -14,6 +15,7 @@ namespace SatisfactoryModelerAddons
             Prefix = prefix;
         }
 
+        public string FinalName => Prefix + " " + Name;
         public string Name { get; set; } = "";
         public string MachineName { get; set; } = "";
         public string Time { get; set; } = "";
@@ -26,7 +28,7 @@ namespace SatisfactoryModelerAddons
         {
             return new JsonObject()
             {
-                { "Name", Prefix + " " + Name },
+                { "Name", FinalName },
                 { "Machine",  Prefix + " " + MachineName },
                 { "BatchTime", Time },
                 { "Tier", Tier },

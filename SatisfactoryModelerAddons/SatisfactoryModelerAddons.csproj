@@ -8,12 +8,25 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="datasout\game_data\" />
-    <Folder Include="datasout\images\icons\" />
+	  <Folder Include="datas" CopyToOutputDirectory="Always" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.12.4" />
+    <PackageReference Include="log4net" Version="3.3.0" />
+    <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="14.11.0" />
   </ItemGroup>
 
+  <ItemGroup>
+	 <None Update="datas\**">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+ 
 </Project>

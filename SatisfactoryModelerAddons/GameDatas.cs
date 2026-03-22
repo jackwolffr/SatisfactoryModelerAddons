@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ImageMagick;
+using log4net;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.PortableExecutable;
@@ -10,40 +12,50 @@ namespace SatisfactoryModelerAddons
 {
     public class GameDatas
     {
+        private static ILog _logger = LogManager.GetLogger(typeof(GameDatas));
         public JsonObject Root { get; }
-        private JsonArray _machines;
-        private JsonArray _parts;
-        private JsonArray _recipes;
+        private readonly JsonArray _machines;
+        private readonly JsonArray _parts;
+        private readonly JsonArray _recipes;
 
         private List<string> partNames = [];
 
-        public GameDatas(JsonObject root)
+        private GameDatas()
         {
-            Root = root;
-            _machines = root["Machines"] as JsonArray;
-            _parts = root["Parts"] as JsonArray;
-            _recipes = root["Recipes"] as JsonArray;
+            Root = [];
+            _machines = [];
+            _parts = [];
+            _recipes = [];
+        }
+        public GameDatas(JsonObject? root)
+        {
+            Root = root ?? [];
+            _machines = Root["Machines"] as JsonArray ?? [];
+            _parts = Root["Parts"] as JsonArray ?? [];
+            _recipes = Root["Recipes"] as JsonArray ?? [];
         }
 
         public void AddMachine(Machine machine)
         {
-            Program.ImageMagick(machine.Image, "160x160", machine.Prefix + "_" + machine.Name.Replace(" ", "_") + ".png");
+            _logger.Info($"add machine {machine.FinalName} {machine.Image}");
+            Program.ImageMagick(machine.Image, new MagickGeometry(160, 160), machine.FinalName.Replace(" ", "_") + ".png");
             _machines.Add(machine.Build());
         }
 
         public void AddPart(Part part)
         {
-            if (!partNames.Contains(part.Prefix + "_" + part.Name))
+            if (!partNames.Contains(part.FinalName))
             {
-                partNames.Add(part.Prefix + "_" + part.Name);
-                Console.WriteLine(part.Prefix + "_" + part.Name + " " + part.Image);
-                Program.ImageMagick(part.Image, "80x80", part.Prefix + "_" + part.Name.Replace(" ", "_") + ".png");
+                _logger.Info($"add part {part.FinalName} {part.Image}");
+                partNames.Add(part.FinalName);
+                Program.ImageMagick(part.Image, new MagickGeometry(80, 80), part.FinalName.Replace(" ", "_") + ".png");
                 _parts.Add(part.Build());
             }
         }
 
         public void AddRecipe(Recipe recipe)
         {
+            _logger.Info($"add recipe {recipe.FinalName} ({recipe.Time}s) [" + string.Join(", ", recipe.Ins.Select(i => $"{i.Amount} {i.FinalName}")) + "] => [" + string.Join(", ", recipe.Outs.Select(i => $"{i.Amount} {i.FinalName}")) + "]");
             _recipes.Add(recipe.Build());
         }
     }

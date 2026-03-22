@@ -24,20 +24,24 @@ namespace SatisfactoryModelerAddons.AlchemyFactory
             };
         }
 
-        public static HashSet<Recipe> FromHTML(string filename, string dataDirName)
+        public static HashSet<Recipe> FromHTML(string dirName)
         {
-            HtmlDocument doc = new HtmlDocument();
-            doc.LoadHtml(File.ReadAllText(filename));
-            HtmlNodeCollection nodes = doc.DocumentNode.SelectNodes("//div[@class='recipe']");
+            HtmlNodeCollection nodes = ItemBase.GetDoc(dirName, "Recipes - Alchemy Factory Codex.html").DocumentNode.SelectNodes("//div[@class='recipe']");
             return nodes.Select(node => new Recipe()
             {
                 Name = node.SelectNodes("h3/a").FirstOrDefault()?.InnerText.Replace("Recipe:", "").Trim() ?? "",
                 DeviceName = node.SelectNodes("div[@class='recipe-details']//a").FirstOrDefault()?.InnerText.Trim() ?? "",
                 Time = node.SelectNodes("div[@class='recipe-details']/span").FirstOrDefault()?.InnerText.Replace("Time:", "").Replace("s", "").Trim() ?? "",
-                Ins = node.SelectNodes("div/div[@class='ingredients']/ul/li").Select(node => Item.FromIngredientNode(node, dataDirName)).ToList(),
-                Outs = node.SelectNodes("div/div[@class='outputs']/ul/li").Select(node => Item.FromIngredientNode(node, dataDirName)).ToList(),
+                Ins = node.SelectNodes("div/div[@class='ingredients']/ul/li").Select(node => Item.FromIngredientNode(node)).ToList(),
+                Outs = node.SelectNodes("div/div[@class='outputs']/ul/li").Select(node => Item.FromIngredientNode(node)).ToList(),
             }).ToHashSet();
         }
+
+        public static HashSet<ItemBase> ToItems(HashSet<Recipe> recipes)
+        {
+            return recipes.SelectMany(r => r.Ins, (r, i) => (ItemBase) i).Concat(recipes.SelectMany(r => r.Outs, (r, i) => (ItemBase)i)).ToHashSet();
+        }
+
 
         public override bool Equals(object? obj)
         {

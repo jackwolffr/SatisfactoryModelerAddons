@@ -1,7 +1,7 @@
 {
   "Devices": [
     {
-      "Heat": "",
+      "Properties": {},
       "Image": "heat.webp",
       "Name": "HeatDevice"
     }
@@ -11,12 +11,28 @@
     "FuelItemName": "Heat",
     "RawMaterialDeviceName": "Purchasing Portal",
     "CopperCoinName": "Copper Coin",
-    "NurseryDeviceName": "Nursery"
+    "NurseryDeviceName": "Nursery",
+    "CoinConverter": {
+      "copper": 1,
+      "silver": 100,
+      "gold": 100000
+    },
+    "Nursery": [
+      [ "Flax" ],
+      [ "Sage" ],
+      [ "Redcurrant" ],
+      [ "Lavender" ],
+      [ "Gentian", "Gentian Nectar" ]
+    ]
   },
   "Items": [
     {
       "Image": "heat.webp",
       "Name": "Heat"
+    },
+    {
+      "Image": "fertilizer.webp",
+      "Name": "nutrient"
     },
     {
       "Image": "redcross.png",

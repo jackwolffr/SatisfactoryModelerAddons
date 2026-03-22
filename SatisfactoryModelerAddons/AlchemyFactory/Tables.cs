@@ -12,7 +12,7 @@ namespace SatisfactoryModelerAddons.AlchemyFactory
         public HashSet<Device> Devices { get; set; } = [];
         public Properties Properties { get; set; } = new Properties();
         public HashSet<Recipe> Recipes { get; set; } = [];
-        public HashSet<Item> Items { get; set; } = [];
+        public HashSet<ItemBase> Items { get; set; } = [];
 
         public void ApplyHeatIngredient()
         {
@@ -37,5 +37,8 @@ namespace SatisfactoryModelerAddons.AlchemyFactory
         public string RawMaterialDeviceName { get; set; } = string.Empty;
         public string CopperCoinName { get; set; } = string.Empty;
         public string NurseryDeviceName { get; set; } = string.Empty;
+        public Dictionary<string, int> CoinConverter { get; set; } = [];
+        public List<List<string>> Nursery { get; set; } = [];
     }
+
 }

@@ -1,12 +1,22 @@
 ﻿using HtmlAgilityPack;
+using System.Xml.Linq;
 
 namespace SatisfactoryModelerAddons.AlchemyFactory
 {
-    public class Device
+    public class Device : ItemBase
     {
-        public required string Name { get; set; }
-        public required string Image { get; set; }
-        public required string Heat { get; set; }
+        public required Dictionary<string, string> Properties { get; set; }
+        public string Heat => Properties.TryGetValue("Heat Speed", out string? heat) ? heat : "";
+        public static HashSet<Device> FromHTML(string dirName)
+        {
+            var nodes = GetDoc(dirName, "Devices - Alchemy Factory Codex.html").DocumentNode.SelectNodes("//div[@class='device']");
+            return nodes.Select(node => new Device()
+            {
+                Name = node.SelectSingleNode("div/h3/a")?.InnerText.Trim() ?? "",
+                Image = node.SelectSingleNode("div[@class='device-header']//img")?.Attributes["src"].Value ?? "",
+                Properties = node.SelectNodes("div[@class='properties']/span")?.Select(node => node.InnerText.Split(":")).ToDictionary(t => t[0].Trim(), t => t[1].Trim()) ?? []
+            }).ToHashSet();
+        }
 
         public Machine ToMachine(string prefix, string datasDirname)
         {
@@ -17,32 +27,5 @@ namespace SatisfactoryModelerAddons.AlchemyFactory
             };
         }
 
-        public static HashSet<Device> FromHTML(string filename, string dataDirName)
-        {
-            HtmlDocument doc = new HtmlDocument();
-            doc.LoadHtml(File.ReadAllText(filename));
-            var nodes = doc.DocumentNode.SelectNodes("//div[@class='device']");
-            return nodes.Select(node => new Device()
-            {
-                Name = node.SelectNodes("div/h3/a")?.First().InnerText.Trim() ?? "",
-                Image = Path.Combine(dataDirName, node.SelectNodes("div[@class='device-header']//img")?.First().Attributes["src"].Value ?? ""),
-                Heat = node.SelectNodes("div[@class='properties']/span")?.Where(node => node.InnerText.Contains("Heat Speed")).First().InnerText.Replace("Heat Speed:", "").Trim() ?? "",
-            }).ToHashSet();
-        }
-
-        public override bool Equals(object? obj)
-        {
-            return obj is Device device && Name == device.Name;
-        }
-
-        public override int GetHashCode()
-        {
-            return Name.GetHashCode();
-        }
-
-        public override string ToString()
-        {
-            return Name;
-        }
     }
 }
