@@ -15,6 +15,7 @@ namespace SatisfactoryModelerAddons
         private static ILog _logger = LogManager.GetLogger(typeof(GameDatas));
         public JsonObject Root { get; }
         private readonly JsonArray _machines;
+        private readonly JsonArray _multiMachines;
         private readonly JsonArray _parts;
         private readonly JsonArray _recipes;
 
@@ -24,6 +25,7 @@ namespace SatisfactoryModelerAddons
         {
             Root = [];
             _machines = [];
+            _multiMachines = [];
             _parts = [];
             _recipes = [];
         }
@@ -31,6 +33,7 @@ namespace SatisfactoryModelerAddons
         {
             Root = root ?? [];
             _machines = Root["Machines"] as JsonArray ?? [];
+            _multiMachines = Root["MultiMachines"] as JsonArray ?? [];
             _parts = Root["Parts"] as JsonArray ?? [];
             _recipes = Root["Recipes"] as JsonArray ?? [];
         }
@@ -40,6 +43,11 @@ namespace SatisfactoryModelerAddons
             _logger.Info($"add machine {machine.FinalName} {machine.Image}");
             Program.ImageMagick(machine.Image, new MagickGeometry(160, 160), machine.FinalName.Replace(" ", "_") + ".png");
             _machines.Add(machine.Build());
+        }
+        public void AddMultipleMachine(MultipleMachine machine)
+        {
+            _logger.Info($"add multiplemachine {machine.FinalName}");
+            _multiMachines.Add(machine.Build());
         }
 
         public void AddPart(Part part)

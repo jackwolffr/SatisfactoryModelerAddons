@@ -19,7 +19,7 @@ public class Program
     public static readonly string IMAGEMAGICKCOMMAND = "/C magick \"{0}\" -resize {1} \"{2}\"";
     public static readonly string GLOBALDATADIRNAME = Path.Combine(BASEDIRNAME,"datas");
 
-    private static void Main(string[] args)
+    private async static Task Main(string[] args)
     {
         logger.Info("build directory "+ GAMEDATASDIRNAME);
         Directory.CreateDirectory(GAMEDATASDIRNAME);
@@ -35,8 +35,8 @@ public class Program
         Directory.CreateDirectory(IMAGESDIRNAME);
         logger.Info("load game_data.json");
         var gameDatas = new GameDatas((JsonObject?)JsonSerializer.Deserialize<JsonNode>(File.ReadAllText(Path.Combine(GLOBALDATADIRNAME, "game_data.json"))));
-        new StarRupture().Apply(gameDatas);
-        new AlchemyFactory().Apply(gameDatas);
+        await new StarRupture().Apply(gameDatas);
+        //new AlchemyFactory().Apply(gameDatas);
         logger.Info("write game_data.json");
         File.WriteAllText(Path.Combine(GAMEDATASDIRNAME, "game_data.json"), JsonSerializer.Serialize(gameDatas.Root, new JsonSerializerOptions() { WriteIndented = true }));
     }

@@ -1,9 +1,0 @@
-﻿60;150;200;Intermediate Building Material
-1;Accumulator;6;2;Electronics;1;Stator;2;Battery
-1;Generator;10;1;Turbine;1;Battery;1;Nozzle
-1;Condenser;15;1;Resonator;3;Synthetic Resin;8;Nanofibre;3;Pump
-1;Electromagnet;5;3;Electromagnetic Coil;3;Synthetic Resin;2;Accumulator
-1;Laser Emitter;6;2;Lens;1;Resonator;6;Electromagnetic Coil
-1;Pressure Tank;12;5;Heat Resistant Sheet;3;Titanium Housing;3;Pump;2;Valve
-1;Resonator;12;1;Accumulator;2;Generator;2;Liquid Helium
-1;Scanner;10;2;Lens;2;Generator;2;Stabilizer

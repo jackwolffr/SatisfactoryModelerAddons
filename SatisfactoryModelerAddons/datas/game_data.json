@@ -16,7 +16,6 @@
     {
       "Name": "FICSMAS Gift Tree",
       "Tier": "0-3",
-      "AveragePower": "0",
       "Cost": [
         {"Part": "FICSMAS Gift", "Amount": "50"},
         {"Part": "FICSMAS Tree Branch", "Amount": "100"},
@@ -40,7 +39,6 @@
     {
       "Name": "Storage Container",
       "Tier": "0-5",
-      "AveragePower": "0",
       "Cost": [
         {"Part": "Iron Plate", "Amount": "10"},
         {"Part": "Iron Rod", "Amount": "10"}
@@ -60,7 +58,6 @@
     {
       "Name": "Space Elevator",
       "Tier": "0-6",
-      "AveragePower": "0",
       "Cost": [
         {"Part": "Concrete", "Amount": "500"},
         {"Part": "Iron Plate", "Amount": "250"},
@@ -106,7 +103,6 @@
     {
       "Name": "Fluid Buffer",
       "Tier": "3-1",
-      "AveragePower": "0",
       "Cost": [
         {"Part": "Copper Sheet", "Amount": "10"},
         {"Part": "Modular Frame", "Amount": "5"}
@@ -151,7 +147,6 @@
     {
       "Name": "Industrial Storage Container",
       "Tier": "4-2",
-      "AveragePower": "0",
       "Cost": [
         {"Part": "Steel Beam", "Amount": "20"},
         {"Part": "Steel Pipe", "Amount": "20"}
@@ -209,7 +204,6 @@
     {
       "Name": "Industrial Fluid Buffer",
       "Tier": "5-5",
-      "AveragePower": "0",
       "Cost": [
         {"Part": "Encased Industrial Beam", "Amount": "5"},
         {"Part": "Copper Sheet", "Amount": "10"},
@@ -288,7 +282,6 @@
     {
       "Name": "Resource Well Extractor",
       "Tier": "8-3",
-      "AveragePower": "0",
       "Cost": [
         {"Part": "Steel Beam", "Amount": "10"},
         {"Part": "Aluminum Casing", "Amount": "10"}
@@ -338,7 +331,6 @@
     {
       "Name": "Alien Power Augmenter",
       "Tier": "9-1",
-      "AveragePower": "0",
       "BasePower": "500",
       "BasePowerBoost": "1/10",
       "FueledBasePowerBoost": "3/10",
@@ -368,7 +360,6 @@
     {
       "Name": "Dimensional Depot Uploader",
       "Tier": "9-1",
-      "AveragePower": "0",
       "Cost": [
         {"Part": "Mercer Sphere", "Amount": "1"},
         {"Part": "SAM Fluctuator", "Amount": "10"},
@@ -470,47 +461,6 @@
           "Name": "Pure",
           "PartsRatio": "2",
           "Color": 8433977
-        }
-      ]
-    },
-    {
-      "Name": "Storage Container",
-      "Machines": [
-        {
-          "Name": "Storage Container",
-          "Default": true
-        },
-        {
-          "Name": "Industrial Storage Container"
-        },
-        {
-          "Name": "Fluid Buffer"
-        },
-        {
-          "Name": "Industrial Fluid Buffer"
-        }
-      ],
-      "Capacities": [
-        {
-          "Name": "Partially Full",
-          "Default": true,
-          "Description": "<html>Partially Full, also Partially Empty:<br/>Extra parts can be either added or taken from this.<br/>This means that it will neither back up nor be short on parts.<br/>This means the inputs and outputs do not rely on each other which allows them to be calculated independently.<br/>You can use this setting to separate parts of your factory for independent calculations.</html>"
-        },
-        {
-          "Name": "Full",
-          "Color": 8433977,
-          "Description": "<html>Full:<br/>Extra parts can be taken from this, but more parts cannot be added than are taken.<br/>This means that it will never be short on parts but can back up.<br/>This means the output does not rely on the input, but the input does rely on the output.<br/>You may be able to get improved calculations using this setting (but not as good as Partially Full).</html>"
-        },
-        {
-          "Name": "Empty",
-          "Color": 13775920,
-          "Description": "<html>Empty:<br/>Extra parts can be added to this, but more parts cannot be taken than are added.<br/>This means that it will never back up but can be short on parts.<br/>This means the input does not rely on the output, but the output does rely on the input.<br/>You may be able to get improved calculations using this setting (but not as good as Partially Full).</html>"
-        },
-        {
-          "Name": "Input = Output",
-          "PartsRatio": "480",
-          "Color": 16311334,
-          "Description": "<html>Input = Output:<br/>The input and outputs must match exactly.<br/>This makes it the same as using a splurger but with a different icon.</html>"
         }
       ]
     },
@@ -887,6 +837,7 @@
     },
     {
       "Name": "Water",
+      "Fluid": true,
       "Tier": "3-1",
       "SinkPoints": 0
     },
@@ -1012,16 +963,19 @@
     },
     {
       "Name": "Crude Oil",
+      "Fluid": true,
       "Tier": "5-2",
       "SinkPoints": 0
     },
     {
       "Name": "Fuel",
+      "Fluid": true,
       "Tier": "5-2",
       "SinkPoints": 0
     },
     {
       "Name": "Heavy Oil Residue",
+      "Fluid": true,
       "Tier": "5-2",
       "SinkPoints": 0
     },
@@ -1082,21 +1036,25 @@
     },
     {
       "Name": "Ionized Fuel",
+      "Fluid": true,
       "Tier": "5-4",
       "SinkPoints": 0
     },
     {
       "Name": "Liquid Biofuel",
+      "Fluid": true,
       "Tier": "5-4",
       "SinkPoints": 0
     },
     {
       "Name": "Rocket Fuel",
+      "Fluid": true,
       "Tier": "5-4",
       "SinkPoints": 0
     },
     {
       "Name": "Turbofuel",
+      "Fluid": true,
       "Tier": "5-4",
       "SinkPoints": 0
     },
@@ -1207,6 +1165,7 @@
     },
     {
       "Name": "Alumina Solution",
+      "Fluid": true,
       "Tier": "7-1",
       "SinkPoints": 0
     },
@@ -1242,6 +1201,7 @@
     },
     {
       "Name": "Sulfuric Acid",
+      "Fluid": true,
       "Tier": "7-5",
       "SinkPoints": 0
     },
@@ -1302,6 +1262,7 @@
     },
     {
       "Name": "Nitrogen Gas",
+      "Fluid": true,
       "Tier": "8-3",
       "SinkPoints": 0
     },
@@ -1342,6 +1303,7 @@
     },
     {
       "Name": "Dissolved Silica",
+      "Fluid": true,
       "Tier": "8-5",
       "SinkPoints": 0
     },
@@ -1352,6 +1314,7 @@
     },
     {
       "Name": "Nitric Acid",
+      "Fluid": true,
       "Tier": "8-5",
       "SinkPoints": 0
     },
@@ -1432,11 +1395,13 @@
     },
     {
       "Name": "Dark Matter Residue",
+      "Fluid": true,
       "Tier": "9-2",
       "SinkPoints": 0
     },
     {
       "Name": "Excited Photonic Matter",
+      "Fluid": true,
       "Tier": "9-2",
       "SinkPoints": 0
     },
@@ -1673,7 +1638,8 @@
       "Tier": "0-6",
       "Parts": [
         {"Part": "Leaves", "Amount": "-1"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Iron Rod",
@@ -1748,7 +1714,8 @@
       "Tier": "0-6",
       "Parts": [
         {"Part": "Mycelia", "Amount": "-1"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Wood Biomass Burner",
@@ -1757,7 +1724,8 @@
       "Tier": "0-6",
       "Parts": [
         {"Part": "Wood", "Amount": "-1"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Copper Ingot",
@@ -1996,7 +1964,8 @@
       "Tier": "0-6",
       "Parts": [
         {"Part": "Biomass", "Amount": "-1"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Concrete",
@@ -2501,7 +2470,8 @@
       "Tier": "2-1",
       "Parts": [
         {"Part": "Smart Plating", "Amount": "-50"}
-      ]
+      ],
+      "SpaceElevatorMultiplier": true
     },
     {
       "Name": "Plastic Smart Plating",
@@ -2533,7 +2503,8 @@
       "Tier": "2-2",
       "Parts": [
         {"Part": "Solid Biofuel", "Amount": "-1"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Coal (Iron)",
@@ -2614,7 +2585,8 @@
       "Parts": [
         {"Part": "Coal", "Amount": "-1"},
         {"Part": "Water", "Amount": "-3"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Distilled Silica",
@@ -2867,7 +2839,8 @@
         {"Part": "Smart Plating", "Amount": "-1000"},
         {"Part": "Versatile Framework", "Amount": "-1000"},
         {"Part": "Automated Wiring", "Amount": "-100"}
-      ]
+      ],
+      "SpaceElevatorMultiplier": true
     },
     {
       "Name": "Automated Speed Wiring",
@@ -2936,7 +2909,8 @@
       "Parts": [
         {"Part": "Petroleum Coke", "Amount": "-1"},
         {"Part": "Water", "Amount": "-9/5"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Rifle Ammo",
@@ -3092,7 +3066,8 @@
       "Tier": "5-5",
       "Parts": [
         {"Part": "Fuel", "Amount": "-1"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Diluted Fuel",
@@ -3160,7 +3135,8 @@
       "Parts": [
         {"Part": "Compacted Coal", "Amount": "-1"},
         {"Part": "Water", "Amount": "-63/10"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Compacted Coal",
@@ -3193,7 +3169,8 @@
         {"Part": "Packaged Fuel", "Amount": "-2"},
         {"Part": "Fuel", "Amount": "2"},
         {"Part": "Empty Canister", "Amount": "2"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Unpackage Heavy Oil Residue",
@@ -3204,7 +3181,8 @@
         {"Part": "Packaged Heavy Oil Residue", "Amount": "-2"},
         {"Part": "Heavy Oil Residue", "Amount": "2"},
         {"Part": "Empty Canister", "Amount": "2"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Unpackage Oil",
@@ -3215,7 +3193,8 @@
         {"Part": "Packaged Oil", "Amount": "-2"},
         {"Part": "Crude Oil", "Amount": "2"},
         {"Part": "Empty Canister", "Amount": "2"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Unpackage Water",
@@ -3226,7 +3205,8 @@
         {"Part": "Packaged Water", "Amount": "-2"},
         {"Part": "Water", "Amount": "2"},
         {"Part": "Empty Canister", "Amount": "2"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Coated Iron Canister",
@@ -3260,7 +3240,8 @@
         {"Part": "Water", "Amount": "-2"},
         {"Part": "Empty Canister", "Amount": "-2"},
         {"Part": "Packaged Water", "Amount": "2"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Empty Fluid Tank",
@@ -3281,7 +3262,8 @@
         {"Part": "Heavy Oil Residue", "Amount": "-2"},
         {"Part": "Empty Canister", "Amount": "-2"},
         {"Part": "Packaged Heavy Oil Residue", "Amount": "2"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Packaged Oil",
@@ -3292,7 +3274,8 @@
         {"Part": "Crude Oil", "Amount": "-2"},
         {"Part": "Empty Canister", "Amount": "-2"},
         {"Part": "Packaged Oil", "Amount": "2"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Packaged Fuel",
@@ -3303,7 +3286,8 @@
         {"Part": "Fuel", "Amount": "-2"},
         {"Part": "Empty Canister", "Amount": "-2"},
         {"Part": "Packaged Fuel", "Amount": "2"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Diluted Packaged Fuel",
@@ -3315,7 +3299,8 @@
         {"Part": "Heavy Oil Residue", "Amount": "-1"},
         {"Part": "Packaged Water", "Amount": "-2"},
         {"Part": "Packaged Fuel", "Amount": "2"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Packaged Liquid Biofuel",
@@ -3326,7 +3311,8 @@
         {"Part": "Liquid Biofuel", "Amount": "-2"},
         {"Part": "Empty Canister", "Amount": "-2"},
         {"Part": "Packaged Liquid Biofuel", "Amount": "2"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Packaged Liquid Biofuel Biomass Burner",
@@ -3335,7 +3321,8 @@
       "Tier": "5-4",
       "Parts": [
         {"Part": "Packaged Liquid Biofuel", "Amount": "-1"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Packaged Turbofuel",
@@ -3346,7 +3333,8 @@
         {"Part": "Turbofuel", "Amount": "-2"},
         {"Part": "Empty Canister", "Amount": "-2"},
         {"Part": "Packaged Turbofuel", "Amount": "2"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Packaged Rocket Fuel",
@@ -3357,7 +3345,8 @@
         {"Part": "Rocket Fuel", "Amount": "-2"},
         {"Part": "Empty Fluid Tank", "Amount": "-1"},
         {"Part": "Packaged Rocket Fuel", "Amount": "1"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Packaged Ionized Fuel",
@@ -3368,7 +3357,8 @@
         {"Part": "Ionized Fuel", "Amount": "-4"},
         {"Part": "Empty Fluid Tank", "Amount": "-2"},
         {"Part": "Packaged Ionized Fuel", "Amount": "2"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Ionized Fuel",
@@ -3391,7 +3381,8 @@
         {"Part": "Packaged Ionized Fuel", "Amount": "-2"},
         {"Part": "Ionized Fuel", "Amount": "4"},
         {"Part": "Empty Fluid Tank", "Amount": "2"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Ionized Fuel Generator",
@@ -3400,7 +3391,8 @@
       "Tier": "5-5",
       "Parts": [
         {"Part": "Ionized Fuel", "Amount": "-1"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Dark-Ion Fuel",
@@ -3437,7 +3429,8 @@
         {"Part": "Packaged Liquid Biofuel", "Amount": "-2"},
         {"Part": "Liquid Biofuel", "Amount": "2"},
         {"Part": "Empty Canister", "Amount": "2"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Liquid Biofuel Generator",
@@ -3446,7 +3439,8 @@
       "Tier": "5-5",
       "Parts": [
         {"Part": "Liquid Biofuel", "Amount": "-1"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Unpackage Rocket Fuel",
@@ -3457,7 +3451,8 @@
         {"Part": "Packaged Rocket Fuel", "Amount": "-1"},
         {"Part": "Rocket Fuel", "Amount": "2"},
         {"Part": "Empty Fluid Tank", "Amount": "1"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Rocket Fuel Generator",
@@ -3466,7 +3461,8 @@
       "Tier": "5-5",
       "Parts": [
         {"Part": "Rocket Fuel", "Amount": "-1"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Rocket Fuel",
@@ -3515,7 +3511,8 @@
         {"Part": "Packaged Turbofuel", "Amount": "-2"},
         {"Part": "Turbofuel", "Amount": "2"},
         {"Part": "Empty Canister", "Amount": "2"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Turbofuel Generator",
@@ -3524,7 +3521,8 @@
       "Tier": "5-5",
       "Parts": [
         {"Part": "Turbofuel", "Amount": "-1"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Turbo Heavy Fuel",
@@ -3862,14 +3860,16 @@
         {"Part": "Versatile Framework", "Amount": "-2500"},
         {"Part": "Modular Engine", "Amount": "-500"},
         {"Part": "Adaptive Control Unit", "Amount": "-100"}
-      ]
+      ],
+      "SpaceElevatorMultiplier": true
     },
     {
       "Name": "Geothermal Generator",
       "Machine": "Geothermal Generator",
       "BatchTime": "0",
       "Tier": "6-1",
-      "Parts": []
+      "Parts": [],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Bauxite (Caterium)",
@@ -3992,7 +3992,8 @@
         {"Part": "Alumina Solution", "Amount": "-2"},
         {"Part": "Empty Canister", "Amount": "-2"},
         {"Part": "Packaged Alumina Solution", "Amount": "2"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Alclad Aluminum Sheet",
@@ -4048,7 +4049,8 @@
         {"Part": "Packaged Alumina Solution", "Amount": "-2"},
         {"Part": "Alumina Solution", "Amount": "2"},
         {"Part": "Empty Canister", "Amount": "2"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Sloppy Alumina",
@@ -4083,7 +4085,8 @@
         {"Part": "Sulfuric Acid", "Amount": "-2"},
         {"Part": "Empty Canister", "Amount": "-2"},
         {"Part": "Packaged Sulfuric Acid", "Amount": "2"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Battery",
@@ -4221,7 +4224,8 @@
         {"Part": "Packaged Sulfuric Acid", "Amount": "-1"},
         {"Part": "Sulfuric Acid", "Amount": "1"},
         {"Part": "Empty Canister", "Amount": "1"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Uranium Ore (Bauxite)",
@@ -4345,7 +4349,8 @@
         {"Part": "Uranium Fuel Rod", "Amount": "-1"},
         {"Part": "Water", "Amount": "-1200"},
         {"Part": "Uranium Waste", "Amount": "50"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Packaged Nitrogen Gas",
@@ -4356,7 +4361,8 @@
         {"Part": "Nitrogen Gas", "Amount": "-4"},
         {"Part": "Empty Fluid Tank", "Amount": "-1"},
         {"Part": "Packaged Nitrogen Gas", "Amount": "1"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Heat Sink",
@@ -4442,7 +4448,8 @@
         {"Part": "Packaged Nitrogen Gas", "Amount": "-1"},
         {"Part": "Nitrogen Gas", "Amount": "4"},
         {"Part": "Empty Fluid Tank", "Amount": "1"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Nitrogen Gas (Bauxite)",
@@ -4550,7 +4557,8 @@
         {"Part": "Nitric Acid", "Amount": "-1"},
         {"Part": "Empty Fluid Tank", "Amount": "-1"},
         {"Part": "Packaged Nitric Acid", "Amount": "1"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Plutonium Fuel Rod",
@@ -4611,7 +4619,8 @@
         {"Part": "Magnetic Field Generator", "Amount": "-500"},
         {"Part": "Nuclear Pasta", "Amount": "-100"},
         {"Part": "Thermal Propulsion Rocket", "Amount": "-250"}
-      ]
+      ],
+      "SpaceElevatorMultiplier": true
     },
     {
       "Name": "Quartz Purification",
@@ -4672,7 +4681,8 @@
         {"Part": "Packaged Nitric Acid", "Amount": "-1"},
         {"Part": "Nitric Acid", "Amount": "1"},
         {"Part": "Empty Fluid Tank", "Amount": "1"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Non-Fissile Uranium",
@@ -4725,7 +4735,8 @@
         {"Part": "Plutonium Fuel Rod", "Amount": "-1"},
         {"Part": "Water", "Amount": "-2400"},
         {"Part": "Plutonium Waste", "Amount": "10"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Reanimated SAM",
@@ -4909,7 +4920,8 @@
       "Tier": "9-2",
       "Parts": [
         {"Part": "Alien Power Matrix", "Amount": "-1"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "Dark Matter Crystal",
@@ -5079,7 +5091,8 @@
         {"Part": "Biochemical Sculptor", "Amount": "-1000"},
         {"Part": "AI Expansion Server", "Amount": "-256"},
         {"Part": "Ballistic Warp Drive", "Amount": "-200"}
-      ]
+      ],
+      "SpaceElevatorMultiplier": true
     },
     {
       "Name": "Ficsonium",
@@ -5119,7 +5132,8 @@
       "Parts": [
         {"Part": "Ficsonium Fuel Rod", "Amount": "-1"},
         {"Part": "Water", "Amount": "-240"}
-      ]
+      ],
+      "IgnoreInputMultiplier": true
     },
     {
       "Name": "FICSMAS Gift",

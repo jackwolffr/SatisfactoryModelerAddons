@@ -8,13 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="datas\NewFolder\**" />
+    <EmbeddedResource Remove="datas\NewFolder\**" />
+    <None Remove="datas\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
 	  <Folder Include="datas" CopyToOutputDirectory="Always" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="HtmlAgilityPack" Version="1.12.4" />
-    <PackageReference Include="log4net" Version="3.3.0" />
-    <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="14.11.0" />
+    <PackageReference Include="log4net" Version="3.3.1" />
+    <PackageReference Include="Magick.NET-Q16-AnyCPU" Version="14.13.1" />
   </ItemGroup>
 
   <ItemGroup>
